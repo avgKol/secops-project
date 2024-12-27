@@ -39,8 +39,8 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:${{ github.sha }}
+            ghcr.io/${{ github.repository | toLowerCase  }}:latest
+            ghcr.io/${{ github.repository | toLowerCase  }}:${{ github.sha }}
           outputs: type=image,name=target,digest-file=digest.txt
 
       # - name: Sign the images with GitHub OIDC Token

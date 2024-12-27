@@ -1,21 +1,14 @@
 # Stage 1: Build stage
-FROM python:3.10-slim AS build
+FROM python:3.12-slim AS build
 
 # Set working directory
 WORKDIR /app
-
-# Copy the requirements file to the working directory
-COPY requirements.txt /app/
-
-# Install the required packages
-RUN pip install --no-cache-dir -r requirements.txt
-
 
 # Copy the application code
 COPY app.py /app/
 
 # Stage 2: Runtime stage
-FROM python:3.10-alpine AS runtime
+FROM python:3.12-alpine AS runtime
 
 # Set working directory
 WORKDIR /app
